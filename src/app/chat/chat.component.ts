@@ -8,8 +8,8 @@ import 'rxjs/add/operator/map';
 	template: `
 		<div>
 			<div>
-				<textarea placeholder="Type a message" cols="50" rows="5" [(ngModel)]="message"></textarea><br/>
-				<input type="button" value="Send" (click)="sendMessage()"/>
+				<textarea placeholder="Type a message" cols="50" rows="5" [(ngModel)]="message" (keyup.enter)="sendMessage()"></textarea><br/>
+				<input type="button" value="Send" (click)="sendMessage()" />
 			</div>
 
 			<br/>
@@ -41,6 +41,11 @@ export class ChatComponent implements OnInit{
 
 			this.messages.push(messages);
 		});
+	}
+
+	onEnter(event: any) {
+
+		console.log('enter pressed');
 	}
 
 }
